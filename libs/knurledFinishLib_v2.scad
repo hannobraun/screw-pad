@@ -1,6 +1,6 @@
 /*
  * knurledFinishLib_v2.scad
- * 
+ *
  * Written by aubenc @ Thingiverse
  *
  * This script is licensed under the Public Domain license.
