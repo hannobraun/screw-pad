@@ -1,5 +1,5 @@
-include <BOSL/constants.scad>
-use <BOSL/threading.scad>
+include <libs/BOSL/constants.scad>
+use <libs/BOSL/threading.scad>
 
 height            = 15;
 material_strength = 2.5;
