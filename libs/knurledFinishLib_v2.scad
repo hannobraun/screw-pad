@@ -148,7 +148,7 @@ module knurled_finish(ord, ird, lf, sh, fn, rn)
                      [ ird*cos(lf1), ird*sin(lf1), h2],
                      [ ord*cos(lf2), ord*sin(lf2), h2]
                     ],
-                triangles=[
+                faces=[
                      [0,1,2],[2,3,0],
                      [1,0,4],[4,0,7],[7,8,4],
                      [8,7,9],[10,9,7],
