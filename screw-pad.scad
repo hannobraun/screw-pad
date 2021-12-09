@@ -19,7 +19,7 @@ screw();
 module nut() {
     union() {
         cylinder(
-            d = outer_diameter * 1.2,
+            d = outer_diameter,
             h = material_strength,
             $fn = 360
         );
