@@ -1,6 +1,9 @@
 include <libs/BOSL/constants.scad>
 use <libs/BOSL/threading.scad>
 
+use <libs/knurledFinishLib_v2.scad>
+
+
 height            = 15;
 material_strength = 2.5;
 head_height       = 5;
@@ -61,10 +64,16 @@ module nut() {
 module screw() {
     translate([50, 0, 0])
     union() {
-        cylinder(
-            d   = outer_diameter,
-            h   = head_height,
-            $fn = 360
+        knurled_cyl(
+            chg = head_height,
+            cod = outer_diameter,
+
+            // Knurling parameters
+            cwd = 2, // polyhedron width
+            csh = 2, // polyhedron height
+            cdp = 1, // polyhedron depth
+            fsh = 2, // cylinder ends smoothed height
+            smt = 0  // knurled surface smoothing amount
         );
 
         translate([0, 0, head_height])
