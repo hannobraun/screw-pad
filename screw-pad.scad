@@ -24,6 +24,7 @@ screw();
 module nut() {
     translate([-offset_x, 0, 0])
     union() {
+        // Base
         cyl(
             d = outer_diameter,
             h = material_strength
@@ -31,6 +32,9 @@ module nut() {
 
         translate([0, 0, material_strength])
         difference() {
+            // The internal thread, plus some superfluous geometry we'll be
+            // removing in the next step.
+            //
             // TASK: This bevels the thread on both sides, although that's only
             //       necessary on the upper side. According to the
             //       documentation, there should be separate `bevel1` and
