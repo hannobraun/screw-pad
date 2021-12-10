@@ -63,6 +63,7 @@ module screw() {
     translate([50, 0, 0])
     difference() {
         union() {
+            // The head.
             knurled_cyl(
                 chg = head_height,
                 cod = outer_diameter,
@@ -75,6 +76,7 @@ module screw() {
                 smt = 0  // knurled surface smoothing amount
             );
 
+            // The screw threads.
             translate([0, 0, head_height])
             buttress_threaded_rod(
                 d      = inner_diameter,
