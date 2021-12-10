@@ -21,10 +21,9 @@ screw();
 
 module nut() {
     union() {
-        cylinder(
+        cyl(
             d = outer_diameter,
-            h = material_strength,
-            $fn = 360
+            h = material_strength
         );
 
         translate([0, 0, material_strength])
@@ -47,14 +46,13 @@ module nut() {
             // BOSL generates an actual hexagonal nut, which is not what we
             // want. Let's make it a cylinder.
             difference() {
-                cylinder(
+                cyl(
                     d = outer_diameter * 2,
                     h = thread_height
                 );
-                cylinder(
-                    d   = outer_diameter,
-                    h   = thread_height,
-                    $fn = 360
+                cyl(
+                    d = outer_diameter,
+                    h = thread_height
                 );
             }
         }
@@ -86,4 +84,12 @@ module screw() {
             align  = V_UP
         );
     }
+}
+
+module cyl(d, h) {
+    cylinder(
+        d   = d,
+        h   = h,
+        $fn = 360
+    );
 }
