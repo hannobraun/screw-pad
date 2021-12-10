@@ -64,16 +64,9 @@ module screw() {
     difference() {
         union() {
             // The head.
-            knurled_cyl(
-                chg = head_height,
-                cod = outer_diameter,
-
-                // Knurling parameters
-                cwd = 2, // polyhedron width
-                csh = 2, // polyhedron height
-                cdp = 1, // polyhedron depth
-                fsh = 2, // cylinder ends smoothed height
-                smt = 0  // knurled surface smoothing amount
+            cyl_knurled(
+                d = outer_diameter,
+                h = head_height
             );
 
             // The screw threads.
@@ -104,5 +97,19 @@ module cyl(d, h) {
         d   = d,
         h   = h,
         $fn = 360
+    );
+}
+
+module cyl_knurled(d, h) {
+    knurled_cyl(
+        chg = h,
+        cod = d,
+
+        // Knurling parameters
+        cwd = 2, // polyhedron width
+        csh = 2, // polyhedron height
+        cdp = 1, // polyhedron depth
+        fsh = 2, // cylinder ends smoothed height
+        smt = 0  // knurled surface smoothing amount
     );
 }
