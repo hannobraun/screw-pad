@@ -5,11 +5,11 @@ use <libs/knurledFinishLib_v2.scad>
 
 
 height            = 15;
-material_strength = 2.5;
+material_strength = 1.25;
 head_height       = 5;
 
 outer_diameter = 30;
-inner_diameter = outer_diameter - material_strength;
+inner_diameter = outer_diameter - 2 * material_strength;
 
 thread_height = height - material_strength;
 thread_pitch  = 2;
