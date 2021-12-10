@@ -14,12 +14,15 @@ inner_diameter = outer_diameter - 2 * material_strength;
 thread_height = height - material_strength;
 thread_pitch  = 2;
 
+offset_x = outer_diameter * 0.75;
+
 
 nut();
 screw();
 
 
 module nut() {
+    translate([-offset_x, 0, 0])
     union() {
         cyl(
             d = outer_diameter,
@@ -60,7 +63,7 @@ module nut() {
 }
 
 module screw() {
-    translate([50, 0, 0])
+    translate([offset_x, 0, 0])
     difference() {
         union() {
             // The head.
