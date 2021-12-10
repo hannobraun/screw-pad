@@ -61,27 +61,38 @@ module nut() {
 
 module screw() {
     translate([50, 0, 0])
-    union() {
-        knurled_cyl(
-            chg = head_height,
-            cod = outer_diameter,
+    difference() {
+        union() {
+            knurled_cyl(
+                chg = head_height,
+                cod = outer_diameter,
 
-            // Knurling parameters
-            cwd = 2, // polyhedron width
-            csh = 2, // polyhedron height
-            cdp = 1, // polyhedron depth
-            fsh = 2, // cylinder ends smoothed height
-            smt = 0  // knurled surface smoothing amount
-        );
+                // Knurling parameters
+                cwd = 2, // polyhedron width
+                csh = 2, // polyhedron height
+                cdp = 1, // polyhedron depth
+                fsh = 2, // cylinder ends smoothed height
+                smt = 0  // knurled surface smoothing amount
+            );
 
-        translate([0, 0, head_height])
-        buttress_threaded_rod(
-            d      = inner_diameter,
-            l      = thread_height,
-            pitch  = thread_pitch,
-            bevel2 = true,
-            orient = ORIENT_Z,
-            align  = V_UP
+            translate([0, 0, head_height])
+            buttress_threaded_rod(
+                d      = inner_diameter,
+                l      = thread_height,
+                pitch  = thread_pitch,
+                bevel2 = true,
+                orient = ORIENT_Z,
+                align  = V_UP
+            );
+        }
+
+        // Hollow out the screw, to save material.
+        translate([0, 0, material_strength])
+        cyl(
+            // We subtract the thread pitch, but we actually need to subtract
+            // the height. Still, this should be a good enough approximation.
+            d = inner_diameter - thread_pitch - 2 * material_strength,
+            h = head_height + thread_height - material_strength
         );
     }
 }
