@@ -26,7 +26,9 @@ module nut() {
     union() {
         // Base
         cyl(
-            d = outer_diameter,
+            // Don't use full outer diamter, to leave some room for the
+            // knurling we add below.
+            d = outer_diameter - material_strength,
             h = material_strength
         );
 
@@ -58,10 +60,24 @@ module nut() {
                     h = thread_height
                 );
                 cyl(
-                    d = outer_diameter,
+                    // Remove more than we have to, to make some room for the
+                    // knurling we add below.
+                    d = outer_diameter - material_strength,
                     h = thread_height
                 );
             }
+        }
+
+        // Add knurling.
+        difference() {
+            cyl_knurled(
+                d = outer_diameter,
+                h = height
+            );
+            cyl(
+                d = outer_diameter - material_strength,
+                h = height
+            );
         }
     }
 }
