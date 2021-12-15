@@ -28,12 +28,15 @@ module nut() {
     translate([-offset_x, 0, 0])
     union() {
         // Base
-        cylinder(
-            // Don't use full outer diamter, to leave some room for the
-            // knurling we add below.
-            d = outer_diameter - material_strength,
-            h = material_strength
-        );
+        difference() {
+            cylinder(
+                // Don't use full outer diamter, to leave some room for the
+                // knurling we add below.
+                d = outer_diameter - material_strength,
+                h = material_strength
+            );
+            signature();
+        }
 
         translate([0, 0, material_strength])
         difference() {
@@ -130,4 +133,31 @@ module cyl_knurled(d, h) {
         fsh = 2, // cylinder ends smoothed height
         smt = 0  // knurled surface smoothing amount
     );
+}
+
+module signature() {
+    lines = [
+        "Screw Pad",
+        "Hanno Braun",
+        "2021-W50 · #3",
+        "Made in",
+        "Odenwald",
+    ];
+
+    size = 2.5;
+
+    linear_extrude(1)
+    mirror([1, 0, 0])
+    union() {
+        for (i = [0 : len(lines) - 1]) {
+            translate([0, -(i - 2.0) * size * 1.5, 0])
+            text(
+                lines[i],
+                size = size,
+                font = "osifont",
+                halign = "center",
+                valign = "center"
+            );
+        }
+    }
 }
