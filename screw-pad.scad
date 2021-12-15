@@ -17,6 +17,9 @@ thread_pitch  = 2;
 offset_x = outer_diameter * 0.75;
 
 
+$fn = 360;
+
+
 nut();
 screw();
 
@@ -118,8 +121,7 @@ module screw() {
 module cyl(d, h) {
     cylinder(
         d   = d,
-        h   = h,
-        $fn = 360
+        h   = h
     );
 }
 
