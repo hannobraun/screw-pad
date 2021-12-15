@@ -28,7 +28,7 @@ module nut() {
     translate([-offset_x, 0, 0])
     union() {
         // Base
-        cyl(
+        cylinder(
             // Don't use full outer diamter, to leave some room for the
             // knurling we add below.
             d = outer_diameter - material_strength,
@@ -58,11 +58,11 @@ module nut() {
             // BOSL generates an actual hexagonal nut, which is not what we
             // want. Let's make it a cylinder.
             difference() {
-                cyl(
+                cylinder(
                     d = outer_diameter * 2,
                     h = thread_height
                 );
-                cyl(
+                cylinder(
                     // Remove more than we have to, to make some room for the
                     // knurling we add below.
                     d = outer_diameter - material_strength,
@@ -77,7 +77,7 @@ module nut() {
                 d = outer_diameter,
                 h = height
             );
-            cyl(
+            cylinder(
                 d = outer_diameter - material_strength,
                 h = height
             );
@@ -109,20 +109,13 @@ module screw() {
 
         // Hollow out the screw, to save material.
         translate([0, 0, material_strength])
-        cyl(
+        cylinder(
             // We subtract the thread pitch, but we actually need to subtract
             // the height. Still, this should be a good enough approximation.
             d = inner_diameter - thread_pitch - 2 * material_strength,
             h = head_height + thread_height - material_strength
         );
     }
-}
-
-module cyl(d, h) {
-    cylinder(
-        d   = d,
-        h   = h
-    );
 }
 
 module cyl_knurled(d, h) {
