@@ -115,7 +115,7 @@ module screw() {
         cylinder(
             // We subtract the thread pitch, but we actually need to subtract
             // the height. Still, this should be a good enough approximation.
-            d = inner_diameter - thread_pitch - 2 * material_strength,
+            d = inner_diameter - 2 * thread_pitch - 2 * material_strength,
             h = head_height + thread_height - material_strength
         );
     }
