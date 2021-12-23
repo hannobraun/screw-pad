@@ -35,7 +35,7 @@ module nut() {
                 d = outer_diameter - material_strength,
                 h = material_strength
             );
-            signature();
+            mark();
         }
 
         translate([0, 0, material_strength])
@@ -135,7 +135,7 @@ module cyl_knurled(d, h) {
     );
 }
 
-module signature() {
+module mark() {
     lines = [
         "Screw Pad",
         "Hanno Braun",
