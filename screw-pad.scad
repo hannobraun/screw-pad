@@ -127,8 +127,8 @@ module cyl_knurled(d, h) {
         cod = d,
 
         // Knurling parameters
-        cwd =  2, // polyhedron width
-        csh =  2, // polyhedron height
+        cwd =  4, // polyhedron width
+        csh =  4, // polyhedron height
         cdp =  1, // polyhedron depth
         fsh =  2, // cylinder ends smoothed height
         smt = 50  // knurled surface smoothing amount
