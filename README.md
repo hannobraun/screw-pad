@@ -20,6 +20,11 @@ This is usable, but a bit loose on my printer. The fit between the screw and nut
 
 I've had two main ideas for further evolution of this product.
 
+### Rubber pads on the bottom
+
+Add a recessed area to the bottom and glue some kind of rubber pad on there. I figured that this would increase traction. Although I haven't done testing to determine if this is actually needed.
+
+
 ### Sideways access using screw driver
 
 During my testing, it became obvious that adjusting the Screw Pad was pretty difficult. The Screw Pad is pretty low, so if you put it under something, it can be hard to fit your hands in there to get to it.
