@@ -11,6 +11,11 @@ For a while, I planned to sell this as a product. Not because I though it would 
 My product ideas have since taken [a different turn](https://github.com/hannobraun/notebook), so I decided to just make this repository public and leave it be.
 
 
+## Status
+
+This is usable, but a bit loose on my printer. The fit between the screw and nut could use some optimization.
+
+
 ## Ideas
 
 I've had two main ideas for further evolution of this product.
